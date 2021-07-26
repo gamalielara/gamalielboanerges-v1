@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="assets/thumbnail.jpg">
+    <meta property="og:title" content="Ara Gamaliel Boanerges">
+    <meta property="og:site_name" content="Ara Gamaliel Boanerges">
+    <meta property="og:description" content="Hello. My name is Ara Gamaliel. This is my first personal website.">
     <title>Ara Gamaliel Boanerges</title>
     <link rel="stylesheet" href="assets/font/fontawesome-free-5.15.3-web/css/all.css">
     <link rel="stylesheet" href="style.css">
@@ -35,7 +39,7 @@
             <div class="media-icons">
                 <a href="https://www.instagram.com/gamalielboanerges/" target='_blank'><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/aragamaliel" target='_blank'><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/gamalielara"><i class="fab fa-github"></i></a>
             </div>
         </div>
         <div class="picture-me">
@@ -56,7 +60,7 @@
 
     <section class="about" id="about">
         <div class="title">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">About Me</h2><hr>
         </div>
         <div class="content">
             <div class="column col-left">
@@ -75,7 +79,7 @@
     </section>
 
     <section class="skills" id="skills">
-        <h2 class='section-title'>My Skills</h2>
+        <h2 class='section-title'>My Skills</h2><hr>
         <p>I love to spend my time learning new things so that I can acquire new skills. Here is some of my self-taught skills</p>
             <div class="image-slider">
                     <div class="slide-div" id="slide-1">
@@ -111,7 +115,7 @@
 
     <section class="work" id="work">
         <div class="title">
-            <h2 class="section-title">Some of My Works</h2>
+            <h2 class="section-title">Some of My Works</h2><hr>
             <p>drag the mouse on top of each picture (or click the picture) to see the caption of each picture.
             click the caption see the full preview</p>
         </div>
@@ -272,14 +276,13 @@
                 </div>
             </div>
             <div class="title">
-                <a href="" class="btn">See All</a>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
         <div class="title">
-            <h2 class="section-title">Contact Me </h2>
+            <h2 class="section-title">Contact Me </h2><hr>
         </div>
 
         <div class="content">
@@ -293,15 +296,6 @@
                         <span>Jatiasih, Bekasi City, West Java, Indonesia</span>
                     </div>
                 </div>
-                <!-- <div class="card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="info">
-                        <h3>Phone</h3>
-                        <span>+6281617814689</span>
-                    </div>
-                </div> -->
                 <div class="card">
                     <div class="contact-icon">
                         <i class="fas fa-envelope-open-text"></i>
@@ -312,31 +306,28 @@
                         <p>ara.gamaliel@outlook.com</p>
                     </div>
                 </div>
-                <!-- <div class="card">
-                    <div class="contact-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="info">
-                        <h3>Website</h3>
-                        <span>null</span>
-                    </div>
-                </div> -->
             </div>
             <div class="row">
                 <div class="contact-form">
-                    <h3>Send Message</h3>
-                    <div class="input-box">
-                        <input type="text" placeholder="Name">
+                    <h3><strong>Send Me A Message!</strong></h3>
+                    <div class="alert alert-hidden">
+                        <p><strong>Thank You!</strong> Your Message has been sent.</p>
+                        <div class="close-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <input type="text" placeholder="Email">
-                    </div>
-                    <div class="input-box">
-                        <textarea name="name" id="" cols="80" rows="8" placeholder="Message"></textarea>
-                    </div>
-                    <div class="input-box">
-                        <input type="submit" class='send-btn' name='' value='Send'>
-                    </div>
+                    <form name="email-respondent">
+                        <div class="input-box">
+                            <input type="text" name="name" placeholder="Name">
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="email" placeholder="Email">
+                        </div>
+                        <div class="input-box">
+                            <textarea name="message" id="" cols="80" rows="8" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit" class='send-btn btn' name='' value='Send'>Send</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -349,5 +340,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" integrity="sha512-UxP+UhJaGRWuMG2YC6LPWYpFQnsSgnor0VUF3BHdD83PS/pOpN+FYbZmrYN+ISX8jnvgVUciqP/fILOXDjZSwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="opening.js"></script>
     <script src="script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyqdFfXEa4jRwmdZw_XCWr7wLmGdaIpCWGV2WpLuMLQY4Eyd6qgFe2FQInmzApSgoZq/exec'
+        const form = document.forms['email-respondent']
+        const closeAlertBox = document.querySelector('.close-btn')
+        const alertBox = document.querySelector('.alert')
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                console.log('Success!', response)
+                // reset form
+                form.reset();
+                alertBox.classList.toggle('alert-hidden')
+            })
+            .catch(error => console.error('Error!', error.message)) 
+        })
+
+        closeAlertBox.addEventListener('click', () => alertBox.classList.toggle('alert-hidden'))
+    </script>
 </body>
 </html>
