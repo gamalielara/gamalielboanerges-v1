@@ -66,7 +66,7 @@ section{
 .animated-text{
     position: relative;
     height: 60px;
-    font-size: 1vw;
+    font-size: 1vmax;
     overflow: hidden;
 }
 
