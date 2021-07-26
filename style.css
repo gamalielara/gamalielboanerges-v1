@@ -17,7 +17,7 @@ section{
 .main{
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     background: url(assets/landing_plain.jpg)no-repeat;
@@ -66,6 +66,7 @@ section{
 .animated-text{
     position: relative;
     height: 60px;
+    font-size: 1vw;
     overflow: hidden;
 }
 
