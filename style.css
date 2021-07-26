@@ -66,7 +66,6 @@ section{
 .animated-text{
     position: relative;
     height: 60px;
-    font-size: 1vmax;
     overflow: hidden;
 }
 
@@ -856,6 +855,8 @@ footer p a{
     .content .card .card-fullpage .container-fullpage .aside h5{font-size: 1vmax;}
 
     .content .card .card-fullpage .container-fullpage .aside #close{font-size: 1.25vmax}
+
+    .animated-text h3 {font-size: 1rem;}
 }
 
 @media (max-width: 280px){
