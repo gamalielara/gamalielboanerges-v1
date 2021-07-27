@@ -25,6 +25,7 @@ const imgDiv = document.querySelectorAll('.work > .content > .card > .card-img')
 document.querySelectorAll('.img-caption').forEach((caption) => {caption.classList.add('hidden')});
 document.querySelectorAll('.card-fullpage').forEach((fullPreview) => {fullPreview.style.display = 'none';});
 document.querySelectorAll('.container-fullpage').forEach((container) => {container.style.opacity = '0';});
+document.querySelectorAll('.container-fullpage').forEach((container) => {container.style.transform = 'translate(-50%, 50%)';});
 
 imgDiv.forEach((img) => {
 const captionDiv = img.childNodes[1];
@@ -41,22 +42,28 @@ const captionDiv = img.childNodes[1];
     });
 });
 
+// to close the pop up preview
 const closeButton = document.querySelectorAll('#close');
 if(closeButton !== null){
     closeButton.forEach((close) => {
         close.addEventListener('click', (event) => {
             const theFullPageContainer = event.target.parentElement.parentElement.parentElement;
+            document.querySelectorAll('.container-fullpage').forEach((container) => {container.style.transform = 'translate(-50%, 50%)';});
             document.querySelectorAll('.container-fullpage').forEach((container) => {container.style.opacity = '0';});
-            theFullPageContainer.style.display = 'none';
+            setTimeout(() => {theFullPageContainer.style.display = 'none';}, 200);
         })
     })
 }
 
+// to open the pop up preview
 const imageCaption = document.querySelectorAll('.content .card .card-img .img-caption h5');
 imageCaption.forEach((caption) => {
     caption.addEventListener('click', (event) => {
         const imgfull = event.target.parentElement.parentElement.parentElement.childNodes[1];
         imgfull.style.display = 'block';
-        document.querySelectorAll('.container-fullpage').forEach((container) => {container.style.opacity = '1';});
+        setTimeout(() => {document.querySelectorAll('.container-fullpage').forEach((container) => {
+            container.style.opacity = '1';
+            container.style.transform = 'translate(-50%, -50%)';
+        });}, 200); 
     })
 });

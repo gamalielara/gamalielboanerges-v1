@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&family=IM+Fell+English:ital@0;1&display=swap');
 
 *{
     font-family: Varela, Helvetica;
@@ -244,29 +245,6 @@ body{
     margin-bottom: 20px;
 }
 
-/* .section-title::before{
-    content: '';
-    position: absolute;
-    top: 56px;
-    left: 50%;
-    width: 140px;
-    height: 4px;
-    background: #423F3E;
-    transform: translateX(-50%);
-} */
-
-/* .section-title::after{
-    content: '';
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #423F3E;
-    transform: translateX(-50%);
-} */
-
 hr{
     color: #2B2B2B;
     width: 30%;
@@ -475,7 +453,7 @@ section.skills{
     left: 50%;
     transform: translate(-50%, -50%);
     transition: .5s ease;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .content .card .card-fullpage .container-fullpage img {
@@ -483,6 +461,7 @@ section.skills{
     max-height: 80vh;
     margin-left: 0;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 .content .card .card-fullpage .container-fullpage .aside h3{font-size: 1.5vmax;}
@@ -500,6 +479,18 @@ section.skills{
     transition: 0.75s;
     margin: 5px 0;
     font-size: 1.25vmax;
+    text-decoration: none;
+}
+
+.chess-title{
+    font-family: IM Fell English, serif;
+    margin-bottom: 10px;
+}
+
+.chess-title i{
+    font-style: italic;
+    font-family: IM Fell English, serif;
+    font-size: inherit;
 }
 
 .content .card .card-fullpage .container-fullpage .aside #close:hover{
@@ -879,6 +870,8 @@ footer p a{
     .contact .content .row .card .info p, span {font-size: 4vw}
 
     span.text{font-size: 1.5rem;}
+
+    .chess-title{font-size: 1em;}
 }
 
 @media (max-width: 350px){
