@@ -40,6 +40,7 @@ section{
     --image-with: -100%;
     animation: change-img 15s infinite;
     transform: translateX(0);
+    animation-delay: 5s;
 }
 
 @keyframes change-img{
