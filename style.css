@@ -28,16 +28,16 @@ section{
     /* background-attachment: fixed; --> means that the bg will not scroll with the page */
 }
 
-.main .picture-me{
-    width: 30%;
+.main .picture-me {
+    width: calc(0.3*100vmax);
     display: flex;
     overflow: hidden;
 }
 
-.main .picture-me img{
-    width: 100%;
+.main .picture-me img {
+    width: calc(0.3*100vmax);
     object-fit: contain;
-    --image-with: -100%;
+    --image-with: calc(-1*0.3*100vmax);
     animation: change-img 15s infinite;
     transform: translateX(0);
     animation-delay: 5s;
@@ -702,7 +702,7 @@ footer p a{
     }
 
     .main .picture-me {
-        width: 50%;
+        width: calc(0.5*100vmax);
     }
 
     section.about > .title{
@@ -750,7 +750,7 @@ footer p a{
         width: 50%;
     }
     .main .picture-me {
-        width: 40%;
+        width: calc(0.4*100vmax);
     }
 }
 
@@ -764,7 +764,7 @@ footer p a{
 
 @media (max-width: 935px){
     .main .picture-me {
-        width: 80%;
+        width: calc(0.3*100vmax);
     }
 
     .main .content {
@@ -822,12 +822,6 @@ footer p a{
         font-weight: 600;
     }
 
-    /* .about .content {
-        flex-direction: column;
-    } */
-
-    /* .title{margin-bottom: 50px;} */
-
     .about .content .col-right {
         position: relative;
         width: 100%;
@@ -861,7 +855,7 @@ footer p a{
 }
 
 @media (max-width: 400px){
-    .main .picture-me{width: 90%}
+    .main .picture-me{width: calc(0.3*100vmax)}
     
     .contact .content .row .card {
         width: 75vw;
