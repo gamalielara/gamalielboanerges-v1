@@ -31,6 +31,8 @@ const chessBoardNotation = [
     ['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1'],
 ];
 
+const turnFlag = document.getElementById('turn');
+
 for(i=0; i<8; i++){
 
     for(j=0; j<8; j++){
@@ -52,6 +54,8 @@ for(i=0; i<8; i++){
     }
 
 }
+
+let iswhiteTurn = false;
 
 // drawing the entire chess board
 function loadChessBoard(){
@@ -86,9 +90,18 @@ function loadChessBoard(){
             }    
         }
     }
+
+    iswhiteTurn = !iswhiteTurn
+
+    if(iswhiteTurn){
+        turnFlag.innerText = 'White';
+    } else {
+        turnFlag.innerText = 'Black';
+    }
 }
 
 function resetBoard(){
+    removeHighlights();
     for(let i=0; i<8; i++){
         for(let j=0; j<8; j++){
             const tile = document.getElementById(chessBoardNotation[i][j]);

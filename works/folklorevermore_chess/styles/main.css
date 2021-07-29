@@ -87,7 +87,13 @@ footer{
 }
 
 .enemy-highlight{
-    background-color: #ED7272;
+    background-color: #ED7272 !important;
+    /* opacity: .5; */
+}
+
+.highlight{
+    background-color: #FCF2AA !important;
+    opacity: .5;
 }
 
 .white{background-color: #D4D4D4;}

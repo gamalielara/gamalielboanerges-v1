@@ -14,10 +14,10 @@
 
 a{
     text-decoration: none !important;
-    color: rgb(71, 71, 71) !important;
+    color: rgb(148, 148, 148) !important;
 }
 
-a:hover{color: #fff !important;}
+a:hover{color: #000 !important;}
 
 p {
     text-align: justify;
@@ -80,7 +80,9 @@ body{
     margin-right: auto !important;
     margin-left: auto !important;
 }
-/* ARTICLE SECTION */
+
+
+/* MAIN SECTION */
 .about-me{font-size: .75rem;}
 
 .aside-main-content{box-sizing: border-box;}
@@ -90,7 +92,7 @@ body{
     height: 2em;
     display: inline-block;
     color: #fff;
-    font-size: 1em;
+    font-size: .75em;
     border-radius: 5px;
 }
 
@@ -101,6 +103,8 @@ body{
 }
 
 .latest-articles, .content{border-radius: 10px !important;}
+
+.mysocmed > a:hover{color:#000 !important;}
 
 /* FOOTER*/
 footer{
