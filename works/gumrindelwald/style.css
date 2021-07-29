@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&family=IM+Fell+English:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap');
+
+*{
+    /* defining global variables */
+    --white: #FFFFFF;
+    --darker2: #000000;
+    --darker: #1B1B1B;
+    --dark: #141414;
+    --light: #F3F3F3;
+    --greyish: #E1E1E1;
+    font-family: Josefin Sans;
+}
+
+a{
+    text-decoration: none !important;
+    color: rgb(71, 71, 71) !important;
+}
+
+a:hover{color: #fff !important;}
+
+p {
+    text-align: justify;
+    font-weight: 300;
+}
+
+section{
+    width: 75vw !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.blog-title, .blog-nav{background-color: var(--greyish) !important;}
+
+.divider{
+    margin: 0 auto;
+    color: #000;
+}
+
+.img-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color:var(--light);
+}
+
+
+/* NAVBAR */
+.container-fluid span{
+    font-size: 3rem;
+    font-family: Josefin Sans, sans-serif;
+    font-weight: 600;
+}
+
+.blog-title h5{
+    word-spacing: 5px;
+}
+
+.blog-title h6{
+    letter-spacing: 3px;
+}
+
+.navbar{
+    font-family: Josefin Sans, sans-serif;
+    font-size: 1.25rem;
+}
+
+.navbar .container{
+    justify-content: center !important;
+}
+
+.navbar .container-fluid button span{
+    font-size: 3vw;
+}
+
+.carousel{
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+/* ARTICLE SECTION */
+.about-me{font-size: .75rem;}
+
+.aside-main-content{box-sizing: border-box;}
+
+.tag {
+    background-color: var(--dark);
+    height: 2em;
+    display: inline-block;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.tag:hover{
+    background-color: var(--greyish);
+    color: var(--darker);
+    cursor: pointer;
+}
+
+.latest-articles, .content{border-radius: 10px !important;}
+
+/* FOOTER*/
+footer{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.link-me{color: rgb(122, 122, 122) !important;}
+
+.link-me:hover{color:var(--white) !important;}
