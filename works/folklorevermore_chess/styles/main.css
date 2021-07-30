@@ -4,6 +4,11 @@
 
 *{font-family: IM Fell English, serif}
 
+body{
+    max-height: 90vh;
+    margin: 0;
+}
+
 .container{
     margin: 10px auto;
     display: flex;
@@ -11,20 +16,21 @@
     justify-content: center;
     align-items: center;
     width: 50%;
+    height: 100%;
 }
 
-header{
-    margin-top: 5px;
+header{margin-top: 5px;}
+
+header h1{
+    font-size: 2.5vmax;
+    margin: 0;
 }
 
-h3{
-    line-height: 0.25em;
-    letter-spacing: 0.15em;
-}
+h3{font-size: 1.5vmax;}
 
 .board-card{
     width: 500px;
-    min-height: 500px;
+    height: 500px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     border-radius: 5px;
     display: flex;
@@ -45,7 +51,7 @@ h3{
     /* border: 1px solid black;  */
 }
 
-footer p{font-size: 1.25em;}
+footer p{font-size: 1vmax;}
 
 .col > .piece {
     max-height: 100%;
@@ -68,7 +74,7 @@ footer{
 
 .container h2{
     margin: 20px 0 0 0;
-    font-size: 1.75em;
+    font-size: 2vmax;
 }
 
 .to-turn{
@@ -119,12 +125,12 @@ footer{
 
 #undo-move, #reset-game{
     display: inline-block;
-    font-size: 20px;
+    font-size: 1.5vmax;
     background-color: #3f3f3f;
     color: white;
     padding: 0.5em;
     height: 1em;
-    margin: 0 20px;
+    margin: 10px 10px;
     border-radius: 2px;
     transition: color .75s;
 }
@@ -137,20 +143,32 @@ footer{
     cursor: pointer;
     background-color: #C3C3C3;
     color: #3f3f3f;
-    /* height: 1.5em; */
-    /* width: 1.5em; */
 }
 
-/* img{
-    animation: fading .5s;
+@media (max-width: 1000px){
+    .container{width: 75%;}
 }
-*/
 
-@keyframes fading{
-    0%{opacity: 0%}
-    25%{opacity: 25%;}
-    50%{opacity: 50%;}
-    75%{opacity: 75%;}
-    100%{opacity: 100%;}
-} 
+@media (max-width: 500px){
+    .board-card{
+        width: 90vw;
+        height: fit-content;
+        padding: 5px;
+        box-sizing: border-box;
+    }
 
+    .the-board{
+        width: 100%;
+        height: 100%;
+    }
+
+    .col{
+        width: calc(90vw / 8);
+        height: calc(90vw / 8);
+    }
+
+    .piece > img {
+        width: 100%;
+        height: 100%;
+    }
+}
