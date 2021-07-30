@@ -26,12 +26,13 @@ header h1{
     margin: 0;
 }
 
-h3{font-size: 1.5vmax;}
+h2{font-size: 1.5vmax;}
 
 .board-card{
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    padding: 5px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -46,8 +47,8 @@ h3{font-size: 1.5vmax;}
 .row {display: flex;}
 
 .col{
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     /* border: 1px solid black;  */
 }
 
@@ -56,6 +57,11 @@ footer p{font-size: 1.25vmax;}
 .col > .piece {
     max-height: 100%;
     max-width: 100%;
+}
+
+.piece > img {
+    height: 100%;
+    width: 100%;
 }
 
 .col > .possible-move{
@@ -72,9 +78,9 @@ footer{
     margin-bottom: 10px;
 }
 
-.container h2{
+.container h3{
     margin: 20px 0 0 0;
-    font-size: 2vmax;
+    font-size: 1.5vmax;
 }
 
 .to-turn{
@@ -151,7 +157,7 @@ footer{
 @media (max-width: 1000px){
     .container{width: 75%;}
 
-    .container h2 {
+    .container h3 {
         font-size: 2.5vmax;
     }
 
@@ -167,7 +173,7 @@ footer{
         font-size: 3vmax;
     }
 
-    h3 {
+    h2 {
         font-size: 2vmax;
     }
 }
