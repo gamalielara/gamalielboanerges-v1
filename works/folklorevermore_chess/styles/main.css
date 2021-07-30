@@ -51,7 +51,7 @@ h3{font-size: 1.5vmax;}
     /* border: 1px solid black;  */
 }
 
-footer p{font-size: 1vmax;}
+footer p{font-size: 1.25vmax;}
 
 .col > .piece {
     max-height: 100%;
@@ -125,7 +125,7 @@ footer{
 
 #undo-move, #reset-game{
     display: inline-block;
-    font-size: 1.5vmax;
+    font-size: 1.25vmax;
     background-color: #3f3f3f;
     color: white;
     padding: 0.5em;
@@ -133,10 +133,13 @@ footer{
     margin: 10px 10px;
     border-radius: 2px;
     transition: color .75s;
+    text-align: center;
 }
 
-.buttons{
+.buttons {
     margin-top: 5px;
+    display: flex;
+    align-items: center;
 }
 
 #undo-move:hover, #reset-game:hover{
@@ -147,6 +150,26 @@ footer{
 
 @media (max-width: 1000px){
     .container{width: 75%;}
+
+    .container h2 {
+        font-size: 2.5vmax;
+    }
+
+    #undo-move, #reset-game {
+        font-size: 2vmax;
+    }
+
+    footer p {
+        font-size: 2vmax;
+    }
+
+    header h1 {
+        font-size: 3vmax;
+    }
+
+    h3 {
+        font-size: 2vmax;
+    }
 }
 
 @media (max-width: 500px){
