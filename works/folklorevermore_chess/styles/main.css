@@ -4,12 +4,6 @@
 
 *{font-family: IM Fell English, serif}
 
-/* body{
-    width: 80vw;
-    height: 100vh;
-    align-items: center;
-} */
-
 .container{
     margin: 10px auto;
     display: flex;
@@ -77,23 +71,24 @@ footer{
     font-size: 1.75em;
 }
 
-.piece{
+.to-turn{
     transition: background-color .3s;
 }
 
-.piece:hover{
+.to-turn:hover{
     cursor: pointer;
     background-color: #FCF2AA;
 }
 
 .enemy-highlight{
     background-color: #ED7272 !important;
-    /* opacity: .5; */
+    cursor: pointer;
 }
 
 .highlight{
     background-color: #FCF2AA !important;
     opacity: .5;
+    cursor: pointer;
 }
 
 .white{background-color: #D4D4D4;}

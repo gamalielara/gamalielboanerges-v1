@@ -22,25 +22,37 @@ tiles.forEach((tile) => {
             } else {
                 removeHighlights();
                 tile.classList.add('piece-clicked');
-                PLAYERCLICKS.push(tile.id);
                 const r = chessNotationToIndex(tile.id)[0];
                 const c = chessNotationToIndex(tile.id)[1];
                 createHighlight(r, c);
-            }
-            if(PLAYERCLICKS.length === 2){
-                let sq1 = chessNotationToIndex(PLAYERCLICKS[0]);
-                let sq2 = chessNotationToIndex(PLAYERCLICKS[1]);
-                // creating a Move object
-                let move = new Move(sq1, sq2, chessConfig);
-                PLAYERCLICKS = [];
-                const validMoves = game.getValidMoves();
-                validMoves.forEach((validMove) => {
-                    if(validMove.rowStart == move.rowStart && validMove.colStart == move.colStart &&
-                        validMove.rowEnd == move.rowEnd && validMove.colEnd == move.colEnd){
-                        game.makeMove(move);
+                if(document.getElementById(tile.id).hasChildNodes()){
+                    console.log(document.getElementById(tile.id).childNodes);
+                    // if the second click is ally
+                    if((game.whiteToMove && document.getElementById(tile.id).childNodes[0].classList[1][0] === 'w') ||
+                    (!game.whiteToMove && document.getElementById(tile.id).childNodes[0].classList[1][0] === 'b')){
+                        PLAYERCLICKS = [tile.id];
+                        // reset PLAYERCLICKS length to 1 with the tile.id as the sole 
+                    } else {
+                        PLAYERCLICKS.push(tile.id);
                     }
-                });
+                } else {
+                    PLAYERCLICKS.push(tile.id);
+                }
             } 
+        }
+        if(PLAYERCLICKS.length === 2){
+            let sq1 = chessNotationToIndex(PLAYERCLICKS[0]);
+            let sq2 = chessNotationToIndex(PLAYERCLICKS[1]);
+            // creating a Move object
+            let move = new Move(sq1, sq2, chessConfig);
+            PLAYERCLICKS = [];
+            const validMoves = game.getValidMoves();
+            validMoves.forEach((validMove) => {
+                if(validMove.rowStart == move.rowStart && validMove.colStart == move.colStart &&
+                    validMove.rowEnd == move.rowEnd && validMove.colEnd == move.colEnd){
+                    game.makeMove(move);
+                }
+            });
         }
     }); 
 });

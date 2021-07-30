@@ -96,14 +96,160 @@ class Game {
         }
     }
 
-    rookMoves(row, col, allMoves){}
+    rookMoves(row, col, allMoves){
+        const rookMoves = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+        let enemy;
+        let ally;
+        if(this.whiteToMove){
+            enemy = 'b';
+            ally = 'w';
+        } else {
+            enemy = 'w';
+            ally = 'b';
+        }
 
-    knightMoves(row, col, allMoves){}
+        for(const moveDirection of rookMoves){
+            let rowNext;
+            let colNext;
+            for(let i=1; i<8; i++){
+                rowNext = row + (moveDirection[0]*i);
+                colNext = col + (moveDirection[1]*i);
+                if(rowNext >= 0 && rowNext <= 7 && colNext >= 0 && colNext <= 7){
+                    if(chessConfig[rowNext][colNext] === '--'){   
+                        allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                    } else if (chessConfig[rowNext][colNext][0] === enemy){
+                        allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                        break;
+                    } else if (chessConfig[rowNext][colNext][0] === ally) {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+            }
+        }
+    }
 
-    bishopMoves(row, col, allMoves){}
+    knightMoves(row, col, allMoves){
+        const knightMovesDirection = [[2, 1], [1, 2], [-2, 1], [-1, 2], [2, -1], [1, -2], [-2, -1], [-1, -2]];
+        let enemy;
+        let ally;
+        if(this.whiteToMove){
+            enemy = 'b';
+            ally = 'w';
+        } else {
+            enemy = 'w';
+            ally = 'b';
+        }
 
-    queenMoves(row, col, allMoves){}
+        for(const move of knightMovesDirection){
+            let rowNext = row + move[0];
+            let colNext = col + move[1];
 
-    kingMoves(row, col, allMoves){}
+            if(rowNext >= 0 && rowNext <= 7 && colNext >= 0 && colNext <= 7){
+                if(chessConfig[rowNext][colNext] === '--'){
+                    allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                }
+                else if(chessConfig[rowNext][colNext][0] === enemy){
+                    allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                }
+            }
+        }
+    }
+
+    bishopMoves(row, col, allMoves){
+        const bishopMovesDirection = [[-1, 1], [-1, -1], [1, 1], [1, -1]];
+        let enemy;
+        let ally;
+        if(this.whiteToMove){
+            enemy = 'b';
+            ally = 'w';
+        } else {
+            enemy = 'w';
+            ally = 'b';
+        }
+
+        for(const moves of bishopMovesDirection){
+            let rowNext;
+            let colNext;
+            for(let i=1; i<8; i++){
+                rowNext = row + (moves[0] * i);
+                colNext = col + (moves[1] * i);
+                if(rowNext >= 0 && rowNext <= 7 && colNext >= 0 && colNext <= 7){
+                    if(chessConfig[rowNext][colNext] === '--'){
+                        allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                    }
+                    else if(chessConfig[rowNext][colNext][0] === enemy){
+                        allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                        break;
+                    }
+                    else if(chessConfig[rowNext][colNext][0] === ally){
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    queenMoves(row, col, allMoves){
+        const queenMovesDirection = [[-1, 1], [-1, -1], [1, 1], [1, -1], [0, 1], [0, -1], [1, 0], [-1, 0]];
+        let enemy;
+        let ally;
+        if(this.whiteToMove){
+            enemy = 'b';
+            ally = 'w';
+        } else {
+            enemy = 'w';
+            ally = 'b';
+        }
+
+        for(const moves of queenMovesDirection){
+            let rowNext;
+            let colNext;
+            for(let i=1; i<8; i++){
+                rowNext = row + (moves[0] * i);
+                colNext = col + (moves[1] * i);
+                if(rowNext >= 0 && rowNext <= 7 && colNext >= 0 && colNext <= 7){
+                    if(chessConfig[rowNext][colNext] === '--'){
+                        allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                    }
+                    else if(chessConfig[rowNext][colNext][0] === enemy){
+                        allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                        break;
+                    }
+                    else if(chessConfig[rowNext][colNext][0] === ally){
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    kingMoves(row, col, allMoves){
+        const kingMovesDirection = [[-1, 1], [-1, -1], [1, 1], [1, -1], [0, 1], [0, -1], [1, 0], [-1, 0]];
+        let enemy;
+        let ally;
+        if(this.whiteToMove){
+            enemy = 'b';
+            ally = 'w';
+        } else {
+            enemy = 'w';
+            ally = 'b';
+        }
+
+        for(const move of kingMovesDirection){
+            let rowNext = row + move[0];
+            let colNext = col + move[1];
+
+            if(rowNext >= 0 && rowNext <= 7 && colNext >= 0 && colNext <= 7){
+                if(chessConfig[rowNext][colNext] === '--'){
+                    allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                }
+                else if(chessConfig[rowNext][colNext][0] === enemy){
+                    allMoves.push(new Move([row, col], [rowNext, colNext], chessConfig));
+                }
+            }
+        }
+    }
 
 }

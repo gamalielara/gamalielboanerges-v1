@@ -61,6 +61,7 @@ let iswhiteTurn = false;
 function loadChessBoard(){
     // clearing all peaces on the board
     resetBoard();
+    iswhiteTurn = !iswhiteTurn
 
     // checking for pawn to queen
     for(let k=0; k<8; k++){
@@ -85,13 +86,13 @@ function loadChessBoard(){
                 piece.setAttribute('src', 'assets/' + chessConfig[i][j] + '.png');
                 pieceDiv.append(piece);
                 pieceDiv.classList.add('piece', chessConfig[i][j], chessBoardNotation[i][j]);
-                // classList = [piece, piece type, piece location]
+                if((chessConfig[i][j][0] === 'w' && iswhiteTurn) || (chessConfig[i][j][0] === 'b' && !iswhiteTurn)){
+                    pieceDiv.classList.add('to-turn');
+                }
                 tile.append(pieceDiv);
             }    
         }
     }
-
-    iswhiteTurn = !iswhiteTurn
 
     if(iswhiteTurn){
         turnFlag.innerText = 'White';
