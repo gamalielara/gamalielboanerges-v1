@@ -26,7 +26,6 @@ tiles.forEach((tile) => {
                 const c = chessNotationToIndex(tile.id)[1];
                 createHighlight(r, c);
                 if(document.getElementById(tile.id).hasChildNodes()){
-                    console.log(document.getElementById(tile.id).childNodes);
                     // if the second click is ally
                     if((game.whiteToMove && document.getElementById(tile.id).childNodes[0].classList[1][0] === 'w') ||
                     (!game.whiteToMove && document.getElementById(tile.id).childNodes[0].classList[1][0] === 'b')){
