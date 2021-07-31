@@ -243,6 +243,18 @@ footer{
     }
 }
 
+@media (max-width: 650px){
+    .alert-full-page .player-info, .player-gameover {
+        width: 70vw;
+    }
+
+    .alert-full-page .dialog-box p {
+        font-size: 2vmax;
+    }
+
+    #undo-move, #reset-game, #close-dialog {font-size: 2vmax;}
+}
+
 @media (max-width: 500px){
     .board-card{
         width: 90vw;
