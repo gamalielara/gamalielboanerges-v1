@@ -57,6 +57,9 @@ body{
 
 .blog-title h5{
     word-spacing: 5px;
+    text-decoration: underline;
+    font-weight: bolder;
+    color: red;
 }
 
 .blog-title h6{

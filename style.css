@@ -43,6 +43,11 @@ section{
     animation-delay: 5s;
 }
 
+span.underlined{
+    font-family: IM Fell English, serif;
+    text-decoration:underline;
+}
+
 @keyframes change-img{
     0%{transform: translateX(0);}
     25%{transform: translateX(var(--image-with));}
