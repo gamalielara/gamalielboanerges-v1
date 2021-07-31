@@ -1,6 +1,6 @@
 let chessConfig = [
     ['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR'],
-    ['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP'],
+    ['bP', 'bB', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP'],
     ['--', '--', '--', '--', '--', '--', '--', '--'],
     ['--', '--', '--', '--', '--', '--', '--', '--'],
     ['--', '--', '--', '--', '--', '--', '--', '--'],
@@ -60,7 +60,7 @@ let iswhiteTurn = false;
 // drawing the entire chess board
 function loadChessBoard(){
     // clearing all peaces on the board
-    resetBoard();
+    clearBoard();
     iswhiteTurn = !iswhiteTurn
 
     // checking for pawn to queen
@@ -79,7 +79,7 @@ function loadChessBoard(){
     // drawing the pieces
     for(let i=0; i<8; i++){
         for(let j=0; j<8; j++){
-            const tile = document.getElementById(chessBoardNotation[i][j]);
+            const square = document.getElementById(chessBoardNotation[i][j]);
             const piece = document.createElement('img');
             const pieceDiv = document.createElement('div');
             if(chessConfig[i][j] != '--'){
@@ -89,7 +89,7 @@ function loadChessBoard(){
                 if((chessConfig[i][j][0] === 'w' && iswhiteTurn) || (chessConfig[i][j][0] === 'b' && !iswhiteTurn)){
                     pieceDiv.classList.add('to-turn');
                 }
-                tile.append(pieceDiv);
+                square.append(pieceDiv);
             }    
         }
     }
@@ -99,9 +99,13 @@ function loadChessBoard(){
     } else {
         turnFlag.forEach((text) => text.innerText = 'Black');
     }
+
+    if(!iswhiteTurn){
+        computerMove();
+    }
 }
 
-function resetBoard(){
+function clearBoard(){
     removeHighlights();
     for(let i=0; i<8; i++){
         for(let j=0; j<8; j++){
@@ -111,4 +115,9 @@ function resetBoard(){
             }
         }
     }
+}
+
+function resetBoard(){
+    chessConfig = initialBoard.map((i) => i.map((j) => j));
+    loadChessBoard();
 }

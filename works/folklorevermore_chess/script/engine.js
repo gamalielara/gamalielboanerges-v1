@@ -24,9 +24,12 @@ class Game {
     constructor(){
         this.whiteToMove = true;
         this.checkMate = false;
+        this.moveLong = [];
     }
 
     makeMove(move){
+        this.addMoveLog();
+
         const startRow = move.rowStart;
         const startCol = move.colStart;
         const endRow = move.rowEnd;
@@ -36,7 +39,27 @@ class Game {
         move.board[startRow][startCol] = '--';
         move.board[endRow][endCol] = movedPiece;
         this.whiteToMove = !this.whiteToMove;
+
         loadChessBoard();
+    }
+
+    addMoveLog(){
+        const thisBoard = chessConfig.map((i) => i.map((j) => j));
+        const isWhiteToMove = this.whiteToMove;
+        const move = {
+            board: thisBoard,
+            turn: isWhiteToMove
+        }
+        this.moveLong.push(move);
+    }
+
+    undoMove(){
+        if(this.moveLong.length > 0){
+            const previousMove = this.moveLong[this.moveLong.length - 1];
+            chessConfig = previousMove.board.map((i) => i.map((j) => j));
+            this.whiteToMove = previousMove.turn;
+            loadChessBoard();
+        }
     }
 
     getValidMoves(){
@@ -55,9 +78,7 @@ class Game {
         
         return player's move list
         */
-
        const validMoves = this.getAllPossibleMoves(chessConfig);
-       console.log(`valid moves before checking: ${validMoves.length}`);
        let playerKing;
        if(this.whiteToMove){
            playerKing = 'wK'
@@ -86,7 +107,6 @@ class Game {
         } else {
             this.checkMate = false;
         }
-        console.log(`valid moves AFTER CHECKING: ${validMoves.length}`)
         return validMoves;
     }
 
@@ -107,6 +127,10 @@ class Game {
             }
         }
         return allMoves;
+    }
+
+    getComputerMove(validMove){
+        return validMove[Math.floor((Math.random()*(validMove.length-1)))];
     }
 
     pawnMoves(row, col, board, allMoves){
