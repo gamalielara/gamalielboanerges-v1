@@ -31,7 +31,7 @@ const chessBoardNotation = [
     ['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1'],
 ];
 
-const turnFlag = document.getElementById('turn');
+const turnFlag = document.querySelectorAll('#turn');
 
 for(i=0; i<8; i++){
 
@@ -95,9 +95,9 @@ function loadChessBoard(){
     }
 
     if(iswhiteTurn){
-        turnFlag.innerText = 'White';
+        turnFlag.forEach((text) => text.innerText = 'White');
     } else {
-        turnFlag.innerText = 'Black';
+        turnFlag.forEach((text) => text.innerText = 'Black');
     }
 }
 

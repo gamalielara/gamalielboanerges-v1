@@ -23,6 +23,7 @@ class Move {
 class Game {
     constructor(){
         this.whiteToMove = true;
+        this.checkMate = false;
     }
 
     makeMove(move){
@@ -80,8 +81,12 @@ class Game {
                 }
             }
         }
-        console.log(`valid moves AFTER checking: ${validMoves.length}`);
-        console.log(validMoves);
+        if(validMoves.length === 0){
+            this.checkMate = true;
+        } else {
+            this.checkMate = false;
+        }
+        console.log(`valid moves AFTER CHECKING: ${validMoves.length}`)
         return validMoves;
     }
 

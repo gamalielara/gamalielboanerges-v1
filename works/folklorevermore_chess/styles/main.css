@@ -148,7 +148,7 @@ footer{
     height: 100%;
 }
 
-#undo-move, #reset-game{
+#undo-move, #reset-game, #close-dialog{
     display: inline-block;
     font-size: 1.25vmax;
     background-color: #3f3f3f;
@@ -167,10 +167,56 @@ footer{
     align-items: center;
 }
 
-#undo-move:hover, #reset-game:hover{
+#undo-move:hover, #reset-game:hover, #close-dialog:hover{
     cursor: pointer;
     background-color: #C3C3C3;
     color: #3f3f3f;
+}
+
+.alert-full-page{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.background-black{
+    background-color: #000;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.alert-full-page .dialog-box{
+    width: 30%;
+    height: 20%;
+    z-index: 99;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.75s ease;
+}
+
+.alert-full-page .player-info, .player-gameover{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: fit-content;
+    text-align: center;
+}
+
+.alert-full-page .dialog-box p{
+    color: black;
+    font-size: 1.5vmax;
 }
 
 @media (max-width: 1000px){

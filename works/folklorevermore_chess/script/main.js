@@ -2,11 +2,38 @@ let PLAYERCLICKS = []; /* 2-dimension array consist of 2 different square select
 
 loadChessBoard();
 const tiles = document.querySelectorAll('.col');
-
 const game = new Game();
+
+const dialogBox = document.querySelectorAll('.dialog-box');
+dialogBox.forEach((dialogbox) => {
+    dialogbox.style.opacity = '0';
+    dialogbox.style.transform = 'translate(-50%, 50%)'
+});
+const fullDialog = document.querySelectorAll('.alert-full-page');
+fullDialog.forEach((fulldialog) => fulldialog.style.display = 'none');
+const closeDialog = document.querySelectorAll('.buttons > #close-dialog');
+
+setTimeout(() => showDialogBox('.player-info'), 500);
+
+if(closeDialog !== null){
+    closeDialog.forEach((closeButton) => {
+        closeButton.addEventListener('click', (event) =>{
+            document.querySelectorAll('.dialog-box').forEach((dialogbox) => {
+                dialogbox.style.transform = 'translate(-50%, 50%)';
+                dialogbox.style.opacity = '0';
+            });
+            setTimeout(() => {
+                fullDialog.forEach((fulldialog) => fulldialog.style.display = 'none');
+            }, 300);
+        });
+    })
+}
 
 tiles.forEach((tile) => {
     tile.addEventListener('click', () => {
+        if(game.checkMate){
+            showDialogBox('.player-gameover');
+        }
         if(PLAYERCLICKS.length === 0){
             removeHighlights();
             tile.classList.add('piece-clicked');
@@ -55,6 +82,17 @@ tiles.forEach((tile) => {
         }
     }); 
 });
+
+function showDialogBox(dialogclass){
+    fullDialog.forEach((fulldialog) => fulldialog.style.display = 'block');
+    const dialogBox = document.querySelector(dialogclass);
+    if(dialogBox !== null){
+        setTimeout(() => {
+            dialogBox.style.opacity = '1';
+            dialogBox.style.transform = 'translate(-50%, -50%)';
+        });
+    }
+}
 
 function chessNotationToIndex(notation){
     for(let i=0; i<8; i++){
