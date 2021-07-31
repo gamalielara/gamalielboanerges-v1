@@ -154,17 +154,19 @@ footer{
     background-color: #3f3f3f;
     color: white;
     padding: 0.5em;
-    height: 1em;
+    height: auto;
     margin: 10px 10px;
     border-radius: 2px;
     transition: color .75s;
     text-align: center;
+    width: 100%;
 }
 
 .buttons {
     margin-top: 5px;
     display: flex;
     align-items: center;
+    width: 50%;
 }
 
 #undo-move:hover, #reset-game:hover, #close-dialog:hover{
@@ -247,12 +249,9 @@ footer{
     .alert-full-page .player-info, .player-gameover {
         width: 70vw !important;
     }
-
     .alert-full-page .dialog-box p {
         font-size: 2vmax !important;
     }
-
-    #undo-move, #reset-game, #close-dialog {font-size: 2vmax !important;}
 }
 
 @media (max-width: 500px){

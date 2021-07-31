@@ -119,5 +119,6 @@ function clearBoard(){
 
 function resetBoard(){
     chessConfig = initialBoard.map((i) => i.map((j) => j));
+    iswhiteTurn = false;
     loadChessBoard();
 }

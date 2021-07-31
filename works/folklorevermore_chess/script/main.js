@@ -116,7 +116,7 @@ function computerMove(){
             game.checkMate = false;
             showDialogBox('.player-gameover');
         }
-    }, 500);
+    }, 1000);
 }
 
 

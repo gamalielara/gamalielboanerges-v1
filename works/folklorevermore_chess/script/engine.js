@@ -54,10 +54,11 @@ class Game {
     }
 
     undoMove(){
-        if(this.moveLong.length > 0){
-            const previousMove = this.moveLong[this.moveLong.length - 1];
+        if(this.moveLong.length > 1){
+            const previousMove = this.moveLong[this.moveLong.length - 2];
             chessConfig = previousMove.board.map((i) => i.map((j) => j));
             this.whiteToMove = previousMove.turn;
+            iswhiteTurn = false;
             loadChessBoard();
         }
     }
