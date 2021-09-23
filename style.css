@@ -7,6 +7,8 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    --width: calc(100vw / 1.5);
+    --slider-width: calc(var(--width) / 5);
 }
 
 section{
@@ -28,41 +30,25 @@ section{
     /* background-attachment: fixed; --> means that the bg will not scroll with the page */
 }
 
-.main .picture-me {
-    width: calc(0.3*100vmax);
-    display: flex;
-    overflow: hidden;
-}
-
-.main .picture-me img {
-    width: calc(0.3*100vmax);
-    object-fit: contain;
-    --image-with: calc(-1*0.3*100vmax);
-    animation: change-img 15s infinite;
-    transform: translateX(0);
-    animation-delay: 5s;
-}
-
 span.underlined{
-    font-family: IM Fell English, serif;
-    text-decoration:underline;
-}
-
-@keyframes change-img{
-    0%{transform: translateX(0);}
-    25%{transform: translateX(var(--image-with));}
-    50%{transform: translateX(calc(var(--image-with)*2));}
-    100%{transform: translateX(0);}
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: underline;
 }
 
 .main .content{
-    width: 70%;
+    margin: auto;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .main .content h2{
     color: #fff;
     font-size: 1.75em;
     font-weight: 500;
+    text-align: center;
 }
 
 .main .content h2 span{
@@ -82,6 +68,7 @@ span.underlined{
     font-weight: 700;
     line-height: 70px;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .animated-text h3:nth-child(1){
@@ -135,6 +122,7 @@ span.underlined{
     width: 100%;
     font-size: 25px;
     margin-right: 15px;
+    margin: 15px;
 }
 
 header{
@@ -311,23 +299,22 @@ section.skills{
 
 .image-slider{
     display: flex;
-    margin: 10px;
-    width: 600px;
+    margin-top: 30px;
+    width: var(--width);
     height: auto;
     overflow: hidden;
     align-items: flex-start;
 }
 
 .image-slider > .slide-div {
-    width: 200px;
-    --width : -200px;
+    width: var(--slider-width);
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     transform: translateX(0);
-    animation: swipe 10s infinite;
+    animation: swipe 15s infinite;
     transition: 0.3s;
 }
 
@@ -336,22 +323,16 @@ section.skills{
         transform: translateX(0);
         filter: saturate(100%);
     }
-    12.5%{filter: saturate(20%);}
     25%{
-        transform: translateX(calc(var(--width)));
-        filter: saturate(100%);
+        filter: saturate(20%);
     }
-    37.5%{filter: saturate(20%);}
     50%{
-        transform: translateX(calc(var(--width) + var(--width)));
+        transform: translateX(calc(var(--slider-width)*-5));
         filter: saturate(100%);
     }
-    62.5%{filter: saturate(20%);}
     75%{
-        transform: translateX(calc(var(--width) + var(--width)*3));;
-        filter: saturate(100%);
+        filter: saturate(20%);
     }
-    87.5%{filter: saturate(20%);}
     100%{
         transform: translateX(0);
         filter: saturate(100%);
@@ -384,13 +365,14 @@ section.skills{
     border-radius: 10px;
 }
 
-.work .content .card .card-img h5:hover{
+.work .content .card .card-img h3:hover{
     cursor: pointer;
     color: #423F3E;
 }
 
-.work .content .card .card-img h5{
+.work .content .card .card-img h3{
     transition: .3s;
+    color:#d3bfbf;
 }
 
 .work .content .card .card-img img{
@@ -442,13 +424,13 @@ section.skills{
     transition: 1s ease;
 }
 
-.content .card .card-fullpage .container-fullpage{
+.content .card .card-fullpage .container-fullpage {
     max-width: 60vw;
     height: auto;
     background-color: #fff;
     padding: 10px;
     box-sizing: border-box;
-    margin-top: 10px;
+    margin: auto 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -464,13 +446,16 @@ section.skills{
 
 .content .card .card-fullpage .container-fullpage img {
     max-width: 90%;
-    max-height: 80vh;
+    max-height: 70vh;
     margin-left: 0;
     margin-right: 10px;
     border-radius: 5px;
 }
 
-.content .card .card-fullpage .container-fullpage .aside h3{font-size: 1.5vmax;}
+.content .card .card-fullpage .container-fullpage .aside h4{
+    margin: 10px 0;
+    font-size: 2vmax;
+}
 
 .content .card .card-fullpage .container-fullpage .aside h5{font-size: 1vmax;}
 
@@ -479,13 +464,37 @@ section.skills{
     background-color: #171010;
     display: inline-block;
     letter-spacing: 2px;
-    width: 60%;
+    width: 40%;
     border: none;
     cursor: pointer;
     transition: 0.75s;
     margin: 5px 0;
     font-size: 1.25vmax;
     text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: center;
+}
+
+.tag{
+    display: inline-block;
+    background-color: #2B2B2B;
+    color: white;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: .75rem;
+}
+
+.tag > a{
+    text-decoration: none;
+    color: white;
 }
 
 .chess-title{
@@ -706,10 +715,6 @@ footer p a{
         transition: 0.3s ease;
     }
 
-    .main .picture-me {
-        width: calc(0.5*100vmax);
-    }
-
     section.about > .title{
         padding: 20px;
         box-sizing: border-box;
@@ -736,41 +741,12 @@ footer p a{
         margin-bottom: 20px;
     }
 
-    .image-slider{
-        margin: 10px;
-        width: 780px;
-        height: auto;
-    }
-    
-    .image-slider > .slide-div {
-        width: 260px;
-        --width : -260px;
-        height: 100%;
-    }
-
-}
-
-@media (max-width: 1250px){
-    .main .content {
-        width: 50%;
-    }
-    .main .picture-me {
-        width: calc(0.4*100vmax);
-    }
-}
-
-@media (max-width: 1000px){
     .about .content .col-left img {
         width: 80vw;
     }
 }
 
-
-
 @media (max-width: 935px){
-    .main .picture-me {
-        width: calc(0.3*100vmax);
-    }
 
     .main .content {
         width: 100%;
@@ -784,21 +760,11 @@ footer p a{
 
 
 @media (max-width: 780px){
-    .image-slider{
-        margin: 10px;
-        width: 600px;
-        height: auto;
-    }
-    
-    .image-slider > .slide-div {
-        width: 200px;
-        --width : -200px;
-        height: 100%;
-    }
+    *{--width: calc(100vw - 10px);}
 
     .main .content h2 span {font-size: 2em;}
 
-    .content .card .card-fullpage .container-fullpage .aside h3{font-size: 2vmax;}
+    .content .card .card-fullpage .container-fullpage .aside h4{font-size: 2.25vmax;}
 
     .content .card .card-fullpage .container-fullpage .aside h5{font-size: 1.5vmax;}
 
@@ -842,16 +808,9 @@ footer p a{
         font-size: 1.5em;
     }
 
-    .image-slider{
-        margin: 10px;
-        width: 300px;
-        height: auto;
-    }
-    
-    .image-slider > .slide-div {
-        width: 100px;
-        --width : -100px;
-        height: 100%;
+    .tag{
+        font-size: .5rem;
+        margin: 5px;
     }
 
     .content .card .card-fullpage .container-fullpage {max-width: 80vw;}
@@ -860,7 +819,6 @@ footer p a{
 }
 
 @media (max-width: 400px){
-    .main .picture-me{width: calc(0.3*100vmax)}
     
     .contact .content .row .card {
         width: 75vw;
@@ -872,10 +830,14 @@ footer p a{
     span.text{font-size: 1.5rem;}
 
     .chess-title{font-size: 1em;}
+
+    .image-slider > .slide-div > h3, h4, h5 {
+        font-size: 3vw;
+    }
 }
 
 @media (max-width: 350px){
-    .content .card .card-fullpage .container-fullpage .aside h3{font-size: 1.5vmax;}
+    .content .card .card-fullpage .container-fullpage .aside h4{font-size: 2vmax;}
 
     .content .card .card-fullpage .container-fullpage .aside h5{font-size: 1vmax;}
 
@@ -886,22 +848,6 @@ footer p a{
 
 @media (max-width: 280px){
     span.text{font-size: 1rem;}
-
-    .image-slider{
-        margin: 10px;
-        width: 270px;
-        height: auto;
-    }
-
-    .image-slider > .slide-div > h3, h4 {
-        font-size: 5vw;
-    }
-    
-    .image-slider > .slide-div {
-        width: 90px;
-        --width : -90px;
-        height: 100%;
-    }
 
     .section-title {
         font-size: 7vw;

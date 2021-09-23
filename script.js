@@ -56,7 +56,7 @@ if(closeButton !== null){
 }
 
 // to open the pop up preview
-const imageCaption = document.querySelectorAll('.content .card .card-img .img-caption h5');
+const imageCaption = document.querySelectorAll('.content .card .card-img .img-caption h3');
 imageCaption.forEach((caption) => {
     caption.addEventListener('click', (event) => {
         const imgfull = event.target.parentElement.parentElement.parentElement.childNodes[1];
