@@ -801,7 +801,6 @@ footer p a{
     .about .content .col-left {
         height: 30vh;
         position: relative;
-        /* margin-top: 50px; */
     }
 
     .animated-text h3 {
@@ -816,6 +815,10 @@ footer p a{
     .content .card .card-fullpage .container-fullpage {max-width: 80vw;}
 
     .contact-form{width: 80vw;}
+    
+    .image-slider > .slide-div > h3, h4, h5 {
+        font-size: 3vw;
+    }
 }
 
 @media (max-width: 400px){
@@ -830,10 +833,6 @@ footer p a{
     span.text{font-size: 1.5rem;}
 
     .chess-title{font-size: 1em;}
-
-    .image-slider > .slide-div > h3, h4, h5 {
-        font-size: 3vw;
-    }
 }
 
 @media (max-width: 350px){
